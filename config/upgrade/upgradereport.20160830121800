@@ -1,0 +1,325 @@
+License, legal-notices/license.txt, has been accepted.
+License Hash: a5GIoWOZQaGncrUaRgtjo5kmm7g=.
+OpenAM Upgrade Report
+=====================
+Created: 20160830121800
+
+Existing Version: OpenAM 13.0.0 Build 5d4589530d (2016-January-14 21:15)
+New Version: OpenAM 13.5.0 Build 550cfe7d60 (2016-July-13 08:43)
+
+Copying the new default JCEKS keystore to configuration Report
+-------------------------------
+Copy across the new JCEKS keystore
+
+
+Services Upgrade Report
+-----------------------
+
+New Services
+
+* AuthenticatorPush
+* PushNotificationService
+* iPlanetAMAuthSecurIDService
+* iPlanetAMAuthAuthenticatorPushRegistrationService
+* iPlanetAMAuthAuthenticatorPushService
+
+
+Modified Services
+
+* selfService
+	Added attributeselfServiceSigningSecretKeyAlias
+	Added attributeKeyAliasValidator
+	Added attributeselfServiceEncryptionKeyPairAlias
+	Added attributeselfServiceUserRegistrationDestination
+* iPlanetAMSessionService
+	Modified attributeopenam-session-stateless-signing-type
+* sunFAMFederationCommon
+	Added attributeDigestAlgorithm
+* iPlanetAMAuthScriptedService
+	Modified attributeiplanet-am-auth-scripted-server-script
+	Modified attributeiplanet-am-auth-scripted-client-script
+	* serverconfig
+		Modified attributeiplanet-am-auth-scripted-server-script
+		Modified attributeiplanet-am-auth-scripted-client-script
+* iPlanetAMAuthAuthenticatorOATHService
+	Added attributeRequiredValueValidator
+	* serverconfig
+		Added attributeRequiredValueValidator
+	Removed attributeAlphaNumericValidator
+	* serverconfig
+		Removed attributeAlphaNumericValidator
+* sunIdentityRepositoryService
+	* LDAPv3ForADAM
+		Added attributeopenam-idrepo-ldapv3-config-secure-protocol-version
+	* LDAPv3ForAD
+		Added attributeopenam-idrepo-ldapv3-config-secure-protocol-version
+	* LDAPv3ForAMDS
+		Added attributeopenam-idrepo-ldapv3-config-secure-protocol-version
+	* LDAPv3ForTivoli
+		Added attributeopenam-idrepo-ldapv3-config-secure-protocol-version
+	* LDAPv3ForOpenDS
+		Added attributeopenam-idrepo-ldapv3-config-secure-protocol-version
+	* LDAPv3
+		Added attributeopenam-idrepo-ldapv3-config-secure-protocol-version
+	* LDAPv3ForADAM
+		Modified attributesun-idrepo-ldapv3-config-user-attributes
+		Modified attributesun-idrepo-ldapv3-config-user-objectclass
+	* LDAPv3ForAD
+		Modified attributesun-idrepo-ldapv3-config-user-attributes
+	* LDAPv3ForAMDS
+		Modified attributesun-idrepo-ldapv3-config-user-attributes
+		Modified attributesun-idrepo-ldapv3-config-user-objectclass
+	* LDAPv3ForTivoli
+		Modified attributesun-idrepo-ldapv3-config-user-objectclass
+		Modified attributesun-idrepo-ldapv3-config-user-attributes
+	* LDAPv3ForOpenDS
+		Modified attributesun-idrepo-ldapv3-config-user-attributes
+		Modified attributesun-idrepo-ldapv3-config-user-objectclass
+* iPlanetAMAuthCertService
+	Added attributeiplanet-am-auth-cert-gw-cert-preferred
+	* serverconfig
+		Added attributeiplanet-am-auth-cert-gw-cert-preferred
+* sunAMAuthADService
+	Added attributeopenam-auth-ldap-secure-protocol-version
+	* serverconfig
+		Added attributeopenam-auth-ldap-secure-protocol-version
+* iPlanetAMAuthService
+	Modified attributeiplanet-am-auth-hmac-signing-shared-secret
+	Modified attributeiplanet-am-auth-authenticators
+* AgentService
+	* OAuth2Client
+		Added attributeidTokenPublicEncryptionKey
+		Added attributecom.forgerock.openam.oauth2provider.jwks
+		Added attributeidTokenEncryptionEnabled
+		Added attributeidTokenEncryptionAlgorithm
+		Added attributeidTokenEncryptionMethod
+		Added attributeisConsentImplied
+	* OAuth2Client
+		Modified attributecom.forgerock.openam.oauth2provider.idTokenSignedResponseAlg
+* iPlanetAMAuthPersistentCookieService
+	Added attributeopenam-auth-persistent-cookie-hmac-key
+	* serverconfig
+		Added attributeopenam-auth-persistent-cookie-hmac-key
+* OAuth2Provider
+	Added attributesupportedIDTokenEncryptionMethods
+	Added attributestatelessTokensEnabled
+	Added attributeidTokenInfoClientAuthenticationEnabled
+	Added attributetokenSigningHmacSharedSecret
+	Added attributestoreOpsTokens
+	Added attributetokenSigningECDSAKeyAlias
+	Added attributesupportedIDTokenEncryptionAlgorithms
+	Added attributetokenSigningAlgorithm
+	Added attributeclientsCanSkipConsent
+	Modified attributeforgerock-oauth2-provider-response-type-map-class
+	Modified attributeforgerock-oauth2-provider-jwt-token-lifetime
+	Modified attributeforgerock-oauth2-provider-authorization-code-lifetime
+	Modified attributeforgerock-oauth2-provider-scope-implementation-class
+	Modified attributeforgerock-oauth2-provider-refresh-token-lifetime
+	Modified attributeforgerock-oauth2-provider-id-token-signing-algorithms-supported
+	Modified attributeforgerock-oauth2-provider-access-token-lifetime
+* sunAMAuthJDBCService
+	Added attributeforgerock-am-auth-jdbc-invalid-chars
+	* serverconfig
+		Added attributeforgerock-am-auth-jdbc-invalid-chars
+* sunEntitlementService
+	* applications
+	* application
+		Added attributedisplayName
+* iPlanetAMAuthLDAPService
+	Added attributeopenam-auth-ldap-secure-protocol-version
+	* serverconfig
+		Added attributeopenam-auth-ldap-secure-protocol-version
+* UmaProvider
+	Modified attributeuma-permission-ticket-lifetime
+* iPlanetAMAuthDeviceIdMatchService
+	Modified attributeiplanet-am-auth-scripted-client-script
+	Modified attributeiplanet-am-auth-scripted-server-script
+	* serverconfig
+		Modified attributeiplanet-am-auth-scripted-client-script
+		Modified attributeiplanet-am-auth-scripted-server-script
+* iPlanetAMAuthOpenIdConnectService
+	Modified attributeopenam-auth-openidconnect-principal-mapper-class
+	* serverconfig
+		Modified attributeopenam-auth-openidconnect-account-provider-class
+
+
+New Schemas
+
+* OAuth2Provider
+	Global
+
+
+
+New Sub Schemas
+
+* AuditService
+		JMS
+	Elasticsearch
+
+		Elasticsearch
+	JMS
+
+
+
+Deleted Services
+
+* iPlanetAMAuthDevicePrintModuleService
+
+
+
+New Privileges Report
+---------------------
+
+User permissions to edit 2FA selection:
+UserUpdate2FAField
+
+OAuth2 Provider Upgrade Report
+----------------------------
+
+Persisted OAuth2 Provider default values for Realms: 
+	bank_employees
+	bank_clients
+	/
+
+
+OAuth2 Policy Sets Report
+-------------------------
+OAuth2 Policy Sets' subjects and conditions needs to be updated in the following realms:
+	/
+
+
+
+AuditService upgrade report
+---------------------------
+Updating i18nFileName attributes from "commonAudit" to "audit"
+
+REST SMS service schema attribute modifications
+--------------------------------------
+
+For services:
+amRealmBaseURL
+AuditService
+AuthenticatorOATH
+AuthenticatorPush
+dashboardService
+iPlanetAMAdminConsoleService
+iPlanetAMAuthAnonymousService
+iPlanetAMAuthAuthenticatorOATHService
+iPlanetAMAuthAuthenticatorPushRegistrationService
+iPlanetAMAuthAuthenticatorPushService
+iPlanetAMAuthCertService
+iPlanetAMAuthConfiguration
+iPlanetAMAuthDeviceIdMatchService
+iPlanetAMAuthDeviceIdSaveService
+iPlanetAMAuthHTTPBasicService
+iPlanetAMAuthLDAPService
+iPlanetAMAuthMembershipService
+iPlanetAMAuthNTService
+iPlanetAMAuthOATHService
+iPlanetAMAuthOpenIdConnectService
+iPlanetAMAuthPersistentCookieService
+iPlanetAMAuthRadiusService
+iPlanetAMAuthSAML2Service
+iPlanetAMAuthScriptedService
+iPlanetAMAuthSecurIDService
+iPlanetAMAuthService
+iPlanetAMAuthWindowsDesktopSSOService
+iPlanetAMClientDetection
+iPlanetAMLoggingService
+iPlanetAMMonitoringService
+iPlanetAMNamingService
+iPlanetAMPasswordResetService
+iPlanetAMPlatformService
+iPlanetAMPolicyConfigService
+iPlanetAMSessionService
+iPlanetAMUserService
+iPlanetG11NSettings
+MailServer
+OAuth2Provider
+PushNotificationService
+RestApisService
+RestSecurity
+ScriptingService
+selfService
+SessionPropertyWhitelistService
+socialAuthNService
+sunAMAuthAdaptiveService
+sunAMAuthADService
+sunAMAuthDataStoreService
+sunAMAuthFederationService
+sunAMAuthHOTPService
+sunAMAuthJDBCService
+sunAMAuthMSISDNService
+sunAMAuthOAuthService
+sunAMAuthSAEService
+sunFAMFederationCommon
+sunFAMIDFFConfiguration
+sunFAMSAML2Configuration
+sunFMCOTConfigService
+sunFMIDFFMetadataService
+sunFMSAML2MetadataService
+sunfmSAML2SOAPBindingService
+sunFMWSFederationMetadataService
+sunIdentityFilteredRoleService
+sunIdentityServerDiscoveryService
+sunMultiFederationProtocol
+UmaProvider
+validationService
+
+Making explicit the default keystore type (JKS) Report
+-------------------------------
+Set the default keystore type (JKS)
+
+
+Policy Upgrade Report
+---------------------
+
+Realm: bank_employees
+	OAuth2ProviderPolicy
+Realm: bank_clients
+	OAuth2ProviderPolicy
+Realm: /
+	OAuth2ProviderPolicy
+
+
+Upgraded UMA Applications
+-------------------------
+
+Realm: /
+	OAuth2
+
+
+Server Default Upgrade Report
+-----------------------------
+
+New Properties
+
+* attr name: org.forgerock.openam.url.connectTimeout : value: 1000
+* attr name: org.forgerock.openam.slf4j.enableTraceInMessage : value: false
+* attr name: org.forgerock.openam.ldap.secure.protocol.version : value: TLSv1
+* attr name: org.forgerock.openam.redirecturlvalidator.maxUrlLength : value: 2000
+* attr name: com.sun.identity.policy.resultsCacheResourceCap : value: 20
+
+
+Modified Properties
+
+* attr name: com.iplanet.am.buildRevision
+	Old value: 5d4589530d
+	New value: 550cfe7d60
+* attr name: com.iplanet.am.version
+	Old value: OpenAM 13.0.0 Build 5d4589530d (2016-January-14 21:15)
+	New value: OpenAM 13.5.0 Build 550cfe7d60 (2016-July-13 08:43)
+* attr name: com.iplanet.am.buildVersion
+	Old value: OpenAM 13.0.0
+	New value: OpenAM 13.5.0
+* attr name: com.iplanet.am.buildDate
+	Old value: 2016-January-14 21:15
+	New value: 2016-July-13 08:43
+
+
+Deleted Properties
+
+* attr name: com.iplanet.am.installdir
+* attr name: com.sun.identity.security.fipsmode
+
+

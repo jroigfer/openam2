@@ -1,0 +1,1 @@
+ldap://opendj-emp:389/http%3A%2F%2Fopenam2.bancsabadell.com%3A8080%2Fopenam?user=cn%3Ddsameuser%2Cou%3DDSAME+Users%2Cdc%3Dexample%2Cdc%3Dcom&pwd=AQIC5wM2LY4SfcxusuttlEKdn83Cq9JTVKxj&dsbasedn=dc%3Dexample%2Cdc%3Dcom&dsmgr=cn%3DDirectory+Manager&dspwd=AQIC5wM2LY4SfczLlj6134qMTx0nkE5XiFMg&ver=1.0
